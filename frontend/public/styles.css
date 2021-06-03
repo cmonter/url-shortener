@@ -47,13 +47,16 @@
   border-radius: 5px;
 }
 
-.input-container a{
+#result-container {
   height: 30px;
   width: 80%;
   margin: 5px 0;
-  color: #319b54;
   border-radius: 5px;
   text-align: center;
+}
+
+#result-container a{
+  color: #319b54;
   font-size: 20px;
   line-height: 30px;
   text-decoration: none;

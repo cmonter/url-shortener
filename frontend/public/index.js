@@ -1,6 +1,6 @@
 const inputURL = document.getElementById('inputURL');
 const btn = document.getElementById('btn');
-const shortURLTag = document.getElementById('shortURL');
+const resultDiv = document.getElementById('result-container');
 
 btn.addEventListener('click', async () => {
   try{
@@ -13,8 +13,9 @@ btn.addEventListener('click', async () => {
     });
     const data = await response.json();
     if(data.shortUrl){
-      shortURLTag.href = data.url;
-      shortURLTag.textContent = data.shortUrl;
+      resultDiv.innerHTML = `<a href="${data.url}">${data.shortUrl}</a>`;
+      // shortURLTag.href = data.url;
+      // shortURLTag.textContent = data.shortUrl;
     }else{
       console.log(data)
     }

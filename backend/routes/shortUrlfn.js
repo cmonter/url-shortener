@@ -1,6 +1,6 @@
 const validUrl = require('valid-url');
-const Link = require('./models/link');
-const { generateshortUrL, appendOrigin } = require('./utils');
+const Link = require('../models/link');
+const { generateshortUrL, appendOrigin } = require('../utils');
 
 const shortUrlRoute = async (req, res) => {
   let origin = req.get('origin');
