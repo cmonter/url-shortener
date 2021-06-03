@@ -2,14 +2,22 @@ const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567
 const SIZE = 6;
 
 const generateshortUrL = url => {
-  console.log("Generating short URL");
+  console.log(`Generating short URL for ${url}`);
   let shortUrl = '';
   for(let i = 0; i<SIZE; i++){
     let randomIdx = Math.floor(Math.random() * characters.length);
     shortUrl += characters[randomIdx]
   }
   return shortUrl;
-  
 }
 
-module.exports = generateshortUrL;
+const appendOrigin = (origin, result) => {
+  let data = { url: result.url, shortUrl: origin + '/' + result.shortUrl };
+  console.log("DATA: ", data);
+  return JSON.stringify(data);
+}
+
+module.exports = {
+  generateshortUrL,
+  appendOrigin
+};
