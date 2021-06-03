@@ -1,5 +1,6 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const validUrl = require('valid-url');
 const { generateshortUrL, appendOrigin } = require('./utils');
 const DB_URL = 'mongodb://127.0.0.1:4444/shortlinks';
 const Link = require('./models/link');
@@ -15,6 +16,7 @@ app.use(express.json());
 app.post('/shorturl', async (req, res) => {
   let origin = req.get('origin');
   try{
+    if(!validUrl.isUri(req.body.url)) throw new Error ('Invalid URL');
     const existingURL = await Link.find({url: req.body.url})
     if(existingURL.length > 0){
       let result = existingURL[0]._doc;
@@ -29,6 +31,7 @@ app.post('/shorturl', async (req, res) => {
       res.send(data);
     }
   }catch(error){
+    console.log("Error: ", error);
     res.send(error);
   }
 

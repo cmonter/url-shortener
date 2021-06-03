@@ -2,7 +2,6 @@ const characters = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ01234567
 const SIZE = 6;
 
 const generateshortUrL = url => {
-  console.log(`Generating short URL for ${url}`);
   let shortUrl = '';
   for(let i = 0; i<SIZE; i++){
     let randomIdx = Math.floor(Math.random() * characters.length);
@@ -13,7 +12,6 @@ const generateshortUrL = url => {
 
 const appendOrigin = (origin, result) => {
   let data = { url: result.url, shortUrl: origin + '/' + result.shortUrl };
-  console.log("DATA: ", data);
   return JSON.stringify(data);
 }
 
