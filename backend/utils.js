@@ -8,12 +8,12 @@ const generateshortUrL = url => {
     shortUrl += characters[randomIdx]
   }
   return shortUrl;
-}
+};
 
 const appendOrigin = (origin, result) => {
   let data = { url: result.url, shortUrl: origin + '/' + result.shortUrl };
   return JSON.stringify(data);
-}
+};
 
 module.exports = {
   generateshortUrL,
