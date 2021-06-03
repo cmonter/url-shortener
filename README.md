@@ -23,3 +23,4 @@ node server.js
 
 4. Open index.html in a live browser
 
+This application recieves as an input a long url and returns a shortened url that redirects you to the original one. In order to achieve this functionality I worte a function that generates a random URL of N characters, by default N is 6 but we can change this value according to the requirementes. The function selects a random character that could be a letter (lowercase and uppercase are different characters) or a number, some special characters could be included but it wouldn't represent a huge advantage on the contrary it could represent a problem for readability of the url.
